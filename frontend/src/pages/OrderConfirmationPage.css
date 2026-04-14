@@ -1,0 +1,23 @@
+.confirmation-page { background: #f1f3f6; min-height: calc(100vh - 56px); padding: 32px 16px; display: flex; justify-content: center; }
+.confirmation-card { background: white; border-radius: 4px; padding: 40px; max-width: 640px; width: 100%; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: center; }
+.success-icon { width: 72px; height: 72px; background: #388e3c; color: white; border-radius: 50%; font-size: 36px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.confirm-heading { font-size: 24px; font-weight: 700; color: #212121; margin: 0 0 8px; }
+.confirm-subtext { color: #878787; font-size: 15px; margin-bottom: 24px; }
+.order-id-box { background: #f5f5f5; border-radius: 4px; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.order-id-label { font-size: 13px; color: #878787; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.order-id-value { font-size: 13px; color: #212121; font-family: monospace; word-break: break-all; }
+.confirm-section { text-align: left; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0; }
+.confirm-section h3 { font-size: 15px; font-weight: 700; color: #212121; margin: 0 0 10px; }
+.confirm-section p { font-size: 14px; color: #444; margin: 4px 0; line-height: 1.5; }
+.confirm-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f9f9f9; }
+.confirm-item img { width: 60px; height: 60px; object-fit: contain; flex-shrink: 0; }
+.confirm-item-info { flex: 1; }
+.confirm-item-name { font-size: 14px; color: #212121; margin: 0 0 4px; }
+.confirm-item-qty { font-size: 12px; color: #878787; margin: 0; }
+.confirm-item-price { font-weight: 600; font-size: 14px; white-space: nowrap; }
+.confirm-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: 700; color: #212121; padding: 16px 0; border-top: 1px solid #f0f0f0; margin-bottom: 24px; }
+.confirm-actions { display: flex; gap: 12px; justify-content: center; }
+.view-orders-btn, .continue-shopping-btn { padding: 12px 24px; border-radius: 2px; font-size: 14px; font-weight: 600; text-decoration: none; }
+.view-orders-btn { background: #2874f0; color: white; }
+.continue-shopping-btn { background: white; color: #2874f0; border: 1px solid #2874f0; }
+.confirm-loading { text-align: center; padding: 80px; font-size: 18px; color: #878787; }
