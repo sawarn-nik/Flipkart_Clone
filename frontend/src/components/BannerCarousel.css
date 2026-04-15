@@ -1,0 +1,97 @@
+.banner-section {
+  background: #fff;
+  padding: 8px 0 10px;
+}
+
+/* Image box — fully rounded, standalone */
+.banner-viewport {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Arrows */
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255,255,255,0.92);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #212121;
+  transition: box-shadow 0.15s, background 0.15s;
+}
+.banner-arrow:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.3); background: #fff; }
+.banner-arrow-left  { left: 10px; }
+.banner-arrow-right { right: 10px; }
+
+/* Slider indicators — completely separate, floating on grey bg below */
+.banner-slider-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  padding: 8px 0 4px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.slider-seg-btn {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+/* Inactive: short grey pill */
+.slider-seg {
+  height: 4px;
+  width: 28px;
+  background: #c8c8c8;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+/* Active: wider dark pill with fill animation */
+.slider-seg-active {
+  width: 52px;
+  background: #e0e0e0;
+}
+
+.slider-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #212121;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .banner-arrow { width: 28px; height: 28px; font-size: 18px; }
+  .banner-arrow-left  { left: 4px; }
+  .banner-arrow-right { right: 4px; }
+}

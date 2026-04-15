@@ -3,7 +3,7 @@ const pool = require("../config/db");
 // GET /api/products — list all products with optional search & category filter
 const getProducts = async (req, res) => {
   try {
-    const { search, category } = req.query;
+    const { search, category, limit } = req.query;
 
     let query = `
       SELECT p.*, c.name AS category_name,
@@ -25,6 +25,11 @@ const getProducts = async (req, res) => {
     }
 
     query += ` ORDER BY p.created_at DESC`;
+
+    if (limit) {
+      query += ` LIMIT ?`;
+      params.push(parseInt(limit, 10));
+    }
 
     const [products] = await pool.query(query, params);
     res.json({ success: true, data: products });

@@ -1,5 +1,5 @@
-.checkout-page { background: #f1f3f6; min-height: calc(100vh - 56px); padding: 16px; }
-.checkout-container { max-width: 1100px; margin: 0 auto; display: flex; gap: 16px; align-items: flex-start; }
+.checkout-page { background: #f1f3f6; min-height: calc(100vh - 56px); padding: 16px 0; }
+.checkout-container { max-width: 880px; margin: 0 auto; display: flex; gap: 16px; align-items: flex-start; }
 .checkout-form-section { flex: 1; background: white; border-radius: 4px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
 .checkout-title { font-size: 18px; font-weight: 600; color: #212121; margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
 .checkout-form { display: flex; flex-direction: column; gap: 16px; }
