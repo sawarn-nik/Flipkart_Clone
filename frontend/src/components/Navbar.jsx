@@ -86,6 +86,7 @@ const Navbar = () => {
   }, [locationModal]);
 
   return (
+    <>
     <header className={`header${scrolled ? " header-scrolled" : ""}`}>
 
       {/* ── Row 1: Logo + Travel pill + Location + (empty flex) ── */}
@@ -345,7 +346,6 @@ const Navbar = () => {
           ))}
         </div>
       </nav>
-
     </header>
 
       {/* ── Mobile Bottom Nav ── */}
@@ -385,6 +385,7 @@ const Navbar = () => {
           Cart
         </Link>
       </nav>
+    </>
   );
 };
 
