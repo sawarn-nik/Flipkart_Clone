@@ -26,6 +26,13 @@ const Navbar = () => {
   const [activeCategory, setActiveCategory] = useState("For You");
   const [loginHover, setLoginHover] = useState(false);
   const [moreHover, setMoreHover] = useState(false);
+  const loginTimerRef = useRef(null);
+  const moreTimerRef = useRef(null);
+
+  const handleLoginEnter = () => { clearTimeout(loginTimerRef.current); setLoginHover(true); };
+  const handleLoginLeave = () => { loginTimerRef.current = setTimeout(() => setLoginHover(false), 200); };
+  const handleMoreEnter  = () => { clearTimeout(moreTimerRef.current); setMoreHover(true); };
+  const handleMoreLeave  = () => { moreTimerRef.current = setTimeout(() => setMoreHover(false), 200); };
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const [scrolled, setScrolled] = useState(false);
   const [locationModal, setLocationModal] = useState(false);
@@ -192,8 +199,8 @@ const Navbar = () => {
           <div className="navbar-links">
             <div
               className="login-wrapper"
-              onMouseEnter={() => setLoginHover(true)}
-              onMouseLeave={() => setLoginHover(false)}
+              onMouseEnter={handleLoginEnter}
+              onMouseLeave={handleLoginLeave}
             >
               <button className="nav-btn login-btn">
                 <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-6bae67.svg" width="18" height="18" alt="profile" />
@@ -210,21 +217,49 @@ const Navbar = () => {
                   <div className="login-dropdown-tag">Login</div>
                   <ul className="login-menu">
                     {[
-                      { icon: "👤", label: "My Profile",               to: "/orders" },
-                      { icon: "✦",  label: "Flipkart Plus Zone",        to: "/" },
-                      { icon: "📦", label: "Orders",                    to: "/orders" },
-                      { icon: "♡",  label: "Wishlist",                  to: "/wishlist" },
-                      { icon: "🏪", label: "Become a Seller",           to: "/" },
-                      { icon: "🎁", label: "Rewards",                   to: "/" },
-                      { icon: "🎁", label: "Gift Cards",                to: "/" },
-                      { icon: "🔔", label: "Notification Preferences",  to: "/" },
-                      { icon: "🎧", label: "24x7 Customer Care",        to: "/" },
-                      { icon: "📢", label: "Advertise",                 to: "/" },
-                      { icon: "📲", label: "Download App",              to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-6bae67.svg", label: "My Profile",               to: "/orders" },
+                      { icon: "https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/plus_aef861.png", label: "Flipkart Plus Zone", to: "/" },
+                      { icon: "orders", label: "Orders", to: "/orders" },
+                      { icon: "heart", label: "Wishlist", to: "/wishlist" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/sell-image-0489fc.svg", label: "Become a Seller",        to: "/" },
+                      { icon: "rewards",      label: "Rewards",                   to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/gift-cards-image-6947a9.svg", label: "Gift Cards", to: "/" },
+                      { icon: "notification", label: "Notification Preferences",    to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/help-centre-image-b9e23c.svg", label: "24x7 Customer Care", to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/advertise-image-e4b62a.svg", label: "Advertise", to: "/" },
+                      { icon: "download",     label: "Download App",               to: "/" },
                     ].map(({ icon, label, to }) => (
                       <li key={label}>
                         <Link to={to} className="login-menu-item">
-                          <span className="menu-icon">{icon}</span>
+                          {icon === "heart" ? (
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="menu-icon">
+                              <path d="M12 21C12 21 3 14 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-9 13-9 13z" stroke="#212121" strokeWidth="1.8" fill="none"/>
+                            </svg>
+                          ) : icon === "orders" ? (
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="menu-icon">
+                              <rect x="3" y="3" width="18" height="18" rx="2" stroke="#212121" strokeWidth="1.8"/>
+                              <path d="M7 8h10M7 12h10M7 16h6" stroke="#212121" strokeWidth="1.8" strokeLinecap="round"/>
+                            </svg>
+                          ) : icon === "rewards" ? (
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="menu-icon">
+                              <circle cx="12" cy="8" r="4" stroke="#212121" strokeWidth="1.8"/>
+                              <path d="M12 12v8M8 20h8" stroke="#212121" strokeWidth="1.8" strokeLinecap="round"/>
+                              <path d="M8 8H4l2-4M16 8h4l-2-4" stroke="#212121" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          ) : icon === "notification" ? (
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="menu-icon">
+                              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="#212121" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#212121" strokeWidth="1.8" strokeLinecap="round"/>
+                            </svg>
+                          ) : icon === "download" ? (
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="menu-icon">
+                              <rect x="5" y="2" width="14" height="20" rx="2" stroke="#212121" strokeWidth="1.8"/>
+                              <path d="M12 7v6M9 10l3 3 3-3" stroke="#212121" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                              <circle cx="12" cy="17" r="1" fill="#212121"/>
+                            </svg>
+                          ) : (
+                            <img src={icon} alt={label} width="16" height="16" className="menu-icon" />
+                          )}
                           <span>{label}</span>
                         </Link>
                       </li>
@@ -235,8 +270,8 @@ const Navbar = () => {
             </div>
             <div
               className="login-wrapper"
-              onMouseEnter={() => setMoreHover(true)}
-              onMouseLeave={() => setMoreHover(false)}
+              onMouseEnter={handleMoreEnter}
+              onMouseLeave={handleMoreLeave}
             >
               <button className="nav-btn">
                 <span>More</span>
@@ -249,14 +284,21 @@ const Navbar = () => {
                   <p className="more-title">More</p>
                   <ul className="login-menu">
                     {[
-                      { icon: "🏪", label: "Become a Seller",        to: "/" },
-                      { icon: "🔔", label: "Notification Settings",  to: "/" },
-                      { icon: "🎧", label: "24x7 Customer Care",     to: "/" },
-                      { icon: "📢", label: "Advertise on Flipkart",  to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/sell-image-0489fc.svg",      label: "Become a Seller",       to: "/" },
+                      { icon: "notification", label: "Notification Settings", to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/help-centre-image-b9e23c.svg", label: "24x7 Customer Care",    to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/advertise-image-e4b62a.svg",  label: "Advertise on Flipkart", to: "/" },
                     ].map(({ icon, label, to }) => (
                       <li key={label}>
                         <Link to={to} className="login-menu-item">
-                          <span className="menu-icon">{icon}</span>
+                          {icon === "notification" ? (
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="menu-icon">
+                              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="#212121" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#212121" strokeWidth="1.8" strokeLinecap="round"/>
+                            </svg>
+                          ) : (
+                            <img src={icon} alt={label} width="16" height="16" className="menu-icon" />
+                          )}
                           <span>{label}</span>
                         </Link>
                       </li>
