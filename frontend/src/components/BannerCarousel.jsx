@@ -19,6 +19,8 @@ const BannerCarousel = () => {
   const timerRef = useRef(null);
   const progressRef = useRef(null);
   const startTimeRef = useRef(null);
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+  const cardWidth = isMobile ? 100 : CARD_WIDTH_PERCENT;
 
   const startTimer = () => {
     clearInterval(timerRef.current);
@@ -56,7 +58,7 @@ const BannerCarousel = () => {
   };
 
   // Translate so current card is first, showing 2 full + half
-  const translateX = -(current * CARD_WIDTH_PERCENT);
+  const translateX = -(current * cardWidth);
 
   return (
     <div className="banner-section">

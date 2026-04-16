@@ -105,3 +105,25 @@
   letter-spacing: 0.3px;
 }
 .add-to-cart-btn:hover { background: #e68900; }
+
+@media (max-width: 768px) {
+  .product-card {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 6px 8px;
+    box-shadow: none;
+  }
+  .card-image-wrapper {
+    height: 120px;
+    margin-bottom: 6px;
+  }
+  .card-image { max-height: 120px; }
+  .card-name { font-size: 12px; margin-bottom: 4px; }
+  .rating-badge { font-size: 10px; padding: 1px 4px; }
+  .rating-count { font-size: 10px; }
+  .price-current { font-size: 13px; }
+  .price-original { font-size: 11px; }
+  .price-discount { font-size: 11px; }
+  .add-to-cart-btn { font-size: 11px; padding: 7px; }
+  .wishlist-btn { font-size: 16px; top: 6px; right: 6px; }
+}

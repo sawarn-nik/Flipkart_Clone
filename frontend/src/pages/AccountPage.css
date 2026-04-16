@@ -1,0 +1,81 @@
+.account-page {
+  background: #f1f3f6;
+  min-height: 100vh;
+  padding-bottom: 70px;
+}
+
+/* Header */
+.account-header {
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+.account-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e8f0fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.account-header-info { flex: 1; }
+.account-login-text { font-size: 14px; color: #212121; margin: 0; }
+.account-login-btn {
+  background: #2874f0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+/* Sections */
+.account-section {
+  background: white;
+  margin-bottom: 8px;
+  padding: 4px 0;
+}
+.account-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #212121;
+  padding: 12px 16px 8px;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Menu items */
+.account-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f9f9f9;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.account-menu-item:last-child { border-bottom: none; }
+.account-orders-item { background: #f8fbff; }
+
+.account-menu-icon { flex-shrink: 0; }
+.account-menu-emoji { font-size: 20px; flex-shrink: 0; width: 24px; text-align: center; }
+
+.account-menu-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.account-menu-label { font-size: 14px; color: #212121; font-weight: 500; }
+.account-menu-sub { font-size: 12px; color: #878787; }
+.account-menu-arrow { font-size: 20px; color: #bbb; }

@@ -30,3 +30,11 @@
 .cancel-order-btn { background: none; border: 1px solid #ff4444; color: #ff4444; padding: 6px 14px; border-radius: 2px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s, color 0.15s; }
 .cancel-order-btn:hover { background: #ff4444; color: white; }
 .cancel-order-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .orders-page { padding: 12px 10px 80px; }
+  .orders-container { padding: 0; }
+  .order-header { gap: 12px; padding: 12px; }
+  .order-footer { padding: 10px 12px; }
+  .order-id { max-width: 140px; }
+}

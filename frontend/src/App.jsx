@@ -16,6 +16,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 import OrderHistoryPage from "./pages/OrderHistoryPage";
 import WishlistPage from "./pages/WishlistPage";
+import AccountPage from "./pages/AccountPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/order-confirmation/:orderId" element={<OrderConfirmationPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/account" element={<AccountPage />} />
           </Routes>
           <SeoContent />
           <Footer />
