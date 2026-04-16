@@ -83,6 +83,7 @@ CREATE TABLE IF NOT EXISTS orders (
   -- Shipping address stored directly on order (snapshot at time of order)
   shipping_name VARCHAR(100) NOT NULL,
   shipping_phone VARCHAR(15) NOT NULL,
+  shipping_email VARCHAR(150),
   shipping_address TEXT NOT NULL,
   shipping_city VARCHAR(100) NOT NULL,
   shipping_state VARCHAR(100) NOT NULL,

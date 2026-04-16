@@ -74,4 +74,40 @@ const sendOrderConfirmation = async ({ to, orderId, name, items, total, shipping
   });
 };
 
-module.exports = { sendOrderConfirmation };
+const sendOrderCancellation = async ({ to, orderId, name, total }) => {
+  const html = `
+    <div style="font-family:Roboto,Arial,sans-serif;max-width:600px;margin:0 auto;background:#f1f3f6;padding:20px;">
+      <div style="background:#e53935;padding:16px 24px;border-radius:8px 8px 0 0;text-align:center;">
+        <h1 style="color:white;margin:0;font-size:22px;">Order Cancelled</h1>
+      </div>
+      <div style="background:white;padding:24px;border-radius:0 0 8px 8px;">
+        <p style="color:#212121;font-size:15px;">Hi <strong>${name}</strong>,</p>
+        <p style="color:#555;font-size:14px;">Your order has been successfully cancelled. Here are the details:</p>
+
+        <div style="background:#f9f9f9;border-radius:4px;padding:12px 16px;margin:16px 0;">
+          <p style="margin:0;font-size:13px;color:#878787;">ORDER ID</p>
+          <p style="margin:4px 0 0;font-size:13px;font-family:monospace;color:#212121;">${orderId}</p>
+        </div>
+
+        <div style="background:#fff8e1;border-radius:4px;padding:12px 16px;margin:16px 0;border-left:4px solid #ffa000;">
+          <p style="margin:0;font-size:14px;color:#212121;">
+            💰 Refund of <strong>₹${Number(total).toLocaleString("en-IN")}</strong> will be processed to your original payment method within <strong>5-7 business days</strong>.
+          </p>
+        </div>
+
+        <p style="margin-top:24px;font-size:13px;color:#878787;text-align:center;">
+          We hope to see you again at <strong style="color:#2874f0;">Flipkart</strong>!
+        </p>
+      </div>
+    </div>
+  `;
+
+  await transporter.sendMail({
+    from: `"Flipkart" <${process.env.EMAIL_USER}>`,
+    to,
+    subject: `Order Cancelled - #${orderId.slice(0, 8).toUpperCase()}`,
+    html,
+  });
+};
+
+module.exports = { sendOrderConfirmation, sendOrderCancellation };

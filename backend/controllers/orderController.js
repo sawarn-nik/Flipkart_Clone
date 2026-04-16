@@ -1,6 +1,6 @@
 const pool = require("../config/db");
 const { v4: uuidv4 } = require("uuid");
-const { sendOrderConfirmation } = require("../config/mailer");
+const { sendOrderConfirmation, sendOrderCancellation } = require("../config/mailer");
 
 const DEFAULT_USER_ID = 1;
 
@@ -11,7 +11,7 @@ const placeOrder = async (req, res) => {
     await conn.beginTransaction(); // Use transaction so everything succeeds or nothing does
 
     const { shipping } = req.body;
-    const { name, phone, address, city, state, pincode } = shipping;
+    const { name, phone, email, address, city, state, pincode } = shipping;
 
     // Get cart items
     const [cartItems] = await conn.query(
@@ -44,9 +44,9 @@ const placeOrder = async (req, res) => {
     // Create order
     const orderId = uuidv4();
     await conn.query(
-      `INSERT INTO orders (id, user_id, total_amount, shipping_name, shipping_phone, shipping_address, shipping_city, shipping_state, shipping_pincode)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [orderId, DEFAULT_USER_ID, total, name, phone, address, city, state, pincode]
+      `INSERT INTO orders (id, user_id, total_amount, shipping_name, shipping_phone, shipping_email, shipping_address, shipping_city, shipping_state, shipping_pincode)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [orderId, DEFAULT_USER_ID, total, name, phone, email || null, address, city, state, pincode]
     );
 
     // Insert order items and reduce stock
@@ -156,6 +156,16 @@ const cancelOrder = async (req, res) => {
 
     await conn.query(`UPDATE orders SET status = 'cancelled' WHERE id = ?`, [id]);
     await conn.commit();
+
+    // Send cancellation email (non-blocking)
+    if (order.shipping_email) {
+      sendOrderCancellation({
+        to: order.shipping_email,
+        orderId: id,
+        name: order.shipping_name,
+        total: order.total_amount,
+      }).catch((err) => console.error("Cancellation email failed:", err.message));
+    }
 
     res.json({ success: true, message: "Order cancelled successfully" });
   } catch (err) {
