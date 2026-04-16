@@ -2,7 +2,7 @@
 
 /* ── Section wrappers ── */
 .section-wrapper {
-  max-width: 1150px;
+  max-width: 1200px;
   margin: 12px auto 0;
   padding: 0 12px;
 }
@@ -48,7 +48,7 @@
 /* ── Main listing layout ── */
 .listing-page {
   display: flex;
-  max-width: 1150px;
+  max-width: 1200px;
   margin: 12px auto 0;
   padding: 0 12px 20px;
   gap: 12px;
@@ -117,6 +117,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 12px;
+}
+
+.products-grid-card {
+  background: white;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 .loading-grid {
   display: grid;

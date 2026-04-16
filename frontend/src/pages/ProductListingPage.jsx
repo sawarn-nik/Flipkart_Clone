@@ -115,27 +115,31 @@ const ProductListingPage = () => {
 
       {/* ── SEARCH / FILTER RESULTS: sidebar + grid ── */}
       {!isHomepage && (
+        <>
+        {!searchQuery && <BannerCarousel />}
         <div className="listing-page">
-          <aside className="sidebar">
-            <h3 className="sidebar-title">Filters</h3>
-            <div className="filter-section">
-              <h4 className="filter-heading">CATEGORY</h4>
-              {categories.map((cat) => (
-                <label key={cat.id} className="filter-option">
-                  <input
-                    type="radio"
-                    name="category"
-                    checked={selectedCategory === cat.name}
-                    onChange={() => handleCategoryClick(cat.name)}
-                  />
-                  <span>{cat.name}</span>
-                </label>
-              ))}
-              {selectedCategory && (
-                <button className="clear-filter" onClick={() => setSelectedCategory("")}>Clear Filter</button>
-              )}
-            </div>
-          </aside>
+          {searchQuery && (
+            <aside className="sidebar">
+              <h3 className="sidebar-title">Filters</h3>
+              <div className="filter-section">
+                <h4 className="filter-heading">CATEGORY</h4>
+                {categories.map((cat) => (
+                  <label key={cat.id} className="filter-option">
+                    <input
+                      type="radio"
+                      name="category"
+                      checked={selectedCategory === cat.name}
+                      onChange={() => handleCategoryClick(cat.name)}
+                    />
+                    <span>{cat.name}</span>
+                  </label>
+                ))}
+                {selectedCategory && (
+                  <button className="clear-filter" onClick={() => setSelectedCategory("")}>Clear Filter</button>
+                )}
+              </div>
+            </aside>
+          )}
 
           <main className="products-main">
             <div className="listing-header">
@@ -157,12 +161,15 @@ const ProductListingPage = () => {
                 <button onClick={() => { setSelectedCategory(""); setSearchParams({}); }}>Clear all filters</button>
               </div>
             ) : (
-              <div className="products-grid">
-                {products.map((product) => <ProductCard key={product.id} product={product} />)}
+              <div className="products-grid-card">
+                <div className="products-grid">
+                  {products.map((product) => <ProductCard key={product.id} product={product} />)}
+                </div>
               </div>
             )}
           </main>
         </div>
+        </>
       )}
     </div>
   );

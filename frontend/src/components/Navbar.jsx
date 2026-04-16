@@ -11,15 +11,14 @@ const categories = [
   { name: "Mobiles",     short: "Mobiles",      icon: `${BASE}/mobiles.svg` },
   { name: "Beauty",      short: "Beauty",       icon: `${BASE}/beauty.svg` },
   { name: "Electronics", short: "Electronics",  icon: `${BASE}/just-headphones.svg` },
-  { name: "Home",        short: "Home",         icon: `${BASE}/tv.svg` },
+  { name: "Home",        short: "Home",         icon: `${BASE}/home-final.svg` },
   { name: "Appliances",  short: "Appliances",   icon: `${BASE}/tv.svg` },
   { name: "Toys",        short: "Toys, ba...",  icon: `${BASE}/toy.svg` },
   { name: "Food",        short: "Food & H...",  icon: `${BASE}/food.svg` },
-  { name: "Auto",        short: "Auto Acc...",  icon: `${BASE}/all.svg` },
-  { name: "2 Wheelers",  short: "2 Wheele...",  icon: `${BASE}/all.svg` },
+  { name: "Auto",        short: "Auto Acc...",  icon: `${BASE}/auto-acc.svg` },
   { name: "Sports",      short: "Sports & ...", icon: `${BASE}/sport.svg` },
   { name: "Books",       short: "Books & ...",  icon: `${BASE}/books.svg` },
-  { name: "Furniture",   short: "Furniture",    icon: `${BASE}/tv.svg` },
+  { name: "Furniture",   short: "Furniture",    icon: `${BASE}/furniture.svg` },
 ];
 
 const Navbar = () => {
@@ -29,10 +28,14 @@ const Navbar = () => {
   const [moreHover, setMoreHover] = useState(false);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const [scrolled, setScrolled] = useState(false);
+  const [locationModal, setLocationModal] = useState(false);
+  const [pincode, setPincode] = useState("");
+  const [savedLocation, setSavedLocation] = useState(() => localStorage.getItem("userPincode") || "");
   const { cartCount } = useCart();
   const navigate = useNavigate();
   const catRefs = useRef({});
   const navInnerRef = useRef(null);
+  const pincodeRef = useRef(null);
 
   // Hide category row on scroll down, show on scroll up
   useEffect(() => {
@@ -59,6 +62,20 @@ const Navbar = () => {
     e.preventDefault();
     navigate(searchQuery.trim() ? `/?search=${encodeURIComponent(searchQuery.trim())}` : "/");
   };
+
+  const handleSaveLocation = () => {
+    if (pincode.length === 6 && /^\d+$/.test(pincode)) {
+      localStorage.setItem("userPincode", pincode);
+      setSavedLocation(pincode);
+      setLocationModal(false);
+      setPincode("");
+    }
+  };
+
+  // Focus input when modal opens
+  useEffect(() => {
+    if (locationModal && pincodeRef.current) pincodeRef.current.focus();
+  }, [locationModal]);
 
   return (
     <header className={`header${scrolled ? " header-scrolled" : ""}`}>
@@ -106,11 +123,11 @@ const Navbar = () => {
                 height="22"
               />
               <img
-                src="https://rukminim2.flixcart.com/fk-p-flap/96/36/image/29d70af2af1d6f47.png?q=60"
-                srcSet="https://rukminim2.flixcart.com/fk-p-flap/48/18/image/29d70af2af1d6f47.png?q=80 1x, https://rukminim2.flixcart.com/fk-p-flap/96/36/image/29d70af2af1d6f47.png?q=60 2x"
+                src="https://rukminim1.flixcart.com/fk-p-flap/96/36/image/29d70af2af1d6f47.png?q=90"
+                srcSet="https://rukminim1.flixcart.com/fk-p-flap/48/18/image/29d70af2af1d6f47.png?q=80 1x, https://rukminim1.flixcart.com/fk-p-flap/96/36/image/29d70af2af1d6f47.png?q=60 2x"
                 alt="Grocery"
                 width="56"
-                height="22"
+                height="28"
               />
             </button>
           </div>
@@ -119,11 +136,42 @@ const Navbar = () => {
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#555"/>
               <circle cx="12" cy="9" r="2.5" fill="white"/>
             </svg>
-            <span className="location-text">Location not set</span>
-            <a href="#" className="location-link">Select delivery location ›</a>
+            <span className="location-text">{savedLocation ? savedLocation : "Location not set"}</span>
+            <button className="location-link" onClick={() => setLocationModal(true)}>
+              {savedLocation ? "Change location ›" : "Select delivery location ›"}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* ── Location Modal ── */}
+      {locationModal && (
+        <div className="location-overlay" onClick={() => setLocationModal(false)}>
+          <div className="location-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="location-modal-header">
+              <h3>Select Delivery Location</h3>
+              <button className="location-modal-close" onClick={() => setLocationModal(false)}>✕</button>
+            </div>
+            <p className="location-modal-sub">Enter your pincode to get accurate delivery dates</p>
+            <div className="location-input-row">
+              <input
+                ref={pincodeRef}
+                type="text"
+                maxLength={6}
+                placeholder="Enter Pincode"
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value.replace(/\D/g, ""))}
+                onKeyDown={(e) => e.key === "Enter" && handleSaveLocation()}
+                className="location-input"
+              />
+              <button className="location-apply-btn" onClick={handleSaveLocation}>Apply</button>
+            </div>
+            {pincode.length > 0 && pincode.length < 6 && (
+              <p className="location-error">Please enter a valid 6-digit pincode</p>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* ── Row 2: Search + Login + More + Cart ── */}
       <div className="navbar">
@@ -148,10 +196,7 @@ const Navbar = () => {
               onMouseLeave={() => setLoginHover(false)}
             >
               <button className="nav-btn login-btn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="8" r="4" stroke="#555" strokeWidth="1.8"/>
-                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#555" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
+                <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-6bae67.svg" width="18" height="18" alt="profile" />
                 <span>Login</span>
                 <span className="chevron">⌄</span>
               </button>
@@ -222,11 +267,7 @@ const Navbar = () => {
             </div>
             <Link to="/cart" className="nav-btn cart-nav-btn">
               <span className="cart-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="#555" strokeWidth="1.8" fill="none"/>
-                  <line x1="3" y1="6" x2="21" y2="6" stroke="#555" strokeWidth="1.8"/>
-                  <path d="M16 10a4 4 0 01-8 0" stroke="#555" strokeWidth="1.8"/>
-                </svg>
+                <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart_v4-6ac9a8.svg" width="20" height="20" alt="cart" />
                 {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
               </span>
               <span>Cart</span>

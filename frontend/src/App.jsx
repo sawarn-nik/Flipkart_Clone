@@ -7,6 +7,7 @@ import { WishlistProvider } from "./context/WishlistContext";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SeoContent from "./components/SeoContent";
 import ProductListingPage from "./pages/ProductListingPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
@@ -30,6 +31,7 @@ function App() {
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/wishlist" element={<WishlistPage />} />
           </Routes>
+          <SeoContent />
           <Footer />
           <ToastContainer position="bottom-right" autoClose={2000} hideProgressBar={false} newestOnTop closeOnClick />
         </WishlistProvider>

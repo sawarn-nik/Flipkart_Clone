@@ -29,6 +29,8 @@ const Footer = () => {
           <a href="#">FAQ</a>
         </div>
 
+        <div className="footer-divider" />
+
         <div className="footer-col">
           <h4>CONSUMER POLICY</h4>
           <a href="#">Cancellation &amp; Returns</a>
@@ -78,18 +80,36 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
           <div className="footer-bottom-links">
-            <a href="#"><span>🏪</span> Become a Seller</a>
-            <a href="#"><span>📢</span> Advertise</a>
-            <a href="#"><span>🎁</span> Gift Cards</a>
-            <a href="#"><span>❓</span> Help Center</a>
+            <a href="#">
+              <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/sell-image-0489fc.svg" alt="Become a Seller" width="20" height="20" />
+              Become a Seller
+            </a>
+            <a href="#">
+              <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/advertise-image-e4b62a.svg" alt="Advertise" width="20" height="20" />
+              Advertise
+            </a>
+            <a href="#">
+              <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/gift-cards-image-6947a9.svg" alt="Gift Cards" width="20" height="20" />
+              Gift Cards
+            </a>
+            <a href="#">
+              <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/help-centre-image-b9e23c.svg" alt="Help Center" width="20" height="20" />
+              Help Center
+            </a>
           </div>
           <div className="footer-copyright">© 2007-2026 Flipkart.com</div>
           <div className="footer-payments">
-            {["VISA", "MC", "RuPay", "Net", "UPI", "EMI", "COD"].map((p) => (
-              <span key={p} className="payment-badge">{p}</span>
-            ))}
+            <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-69e7ec.svg" alt="Payment Methods" height="24" />
           </div>
         </div>
+      </div>
+      <div className="footer-refresh">
+        <button className="footer-refresh-btn" onClick={() => window.location.reload()}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M4 12a8 8 0 018-8 8 8 0 016.32 3.1L20 9h-5V4l1.9 1.9A10 10 0 1022 12h-2a8 8 0 01-8 8 8 8 0 01-8-8z" fill="white"/>
+          </svg>
+          Refresh Page
+        </button>
       </div>
     </footer>
   );
