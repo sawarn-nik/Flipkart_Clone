@@ -10,6 +10,8 @@ const banners = [
 ];
 
 const INTERVAL = 4000;
+// Show 2 full cards + half of next
+const CARD_WIDTH_PERCENT = 42; // each card ~42% of container width
 
 const BannerCarousel = () => {
   const [current, setCurrent] = useState(0);
@@ -53,24 +55,31 @@ const BannerCarousel = () => {
     startTimer();
   };
 
+  // Translate so current card is first, showing 2 full + half
+  const translateX = -(current * CARD_WIDTH_PERCENT);
+
   return (
     <div className="banner-section">
-
-      {/* Image with arrows */}
-      <div className="banner-viewport">
+      <div className="banner-outer">
         <button className="banner-arrow banner-arrow-left" onClick={() => go(-1)}>‹</button>
         <button className="banner-arrow banner-arrow-right" onClick={() => go(1)}>›</button>
 
-        <img
-          key={current}
-          src={banners[current].image}
-          alt={`Banner ${current + 1}`}
-          className="banner-img"
-        />
-
+        <div className="banner-track-wrapper">
+          <div
+            className="banner-track"
+            style={{ transform: `translateX(${translateX}%)` }}
+          >
+            {/* Duplicate for seamless loop feel */}
+            {[...banners, ...banners].map((b, i) => (
+              <div className="banner-card" key={i}>
+                <img src={b.image} alt={`Banner ${b.id}`} className="banner-img" />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Slider indicators — below the image on white bg */}
+      {/* Slider indicators */}
       <div className="banner-slider-track">
         {banners.map((_, i) => (
           <button
@@ -86,7 +95,6 @@ const BannerCarousel = () => {
           </button>
         ))}
       </div>
-
     </div>
   );
 };

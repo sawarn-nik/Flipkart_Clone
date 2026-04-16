@@ -23,7 +23,7 @@
   padding: 0 20px;
 }
 .topbar-inner {
-  max-width: 880px;
+  max-width: 1150px;
   margin: 0 auto;
   height: 44px;
   display: flex;
@@ -85,7 +85,7 @@
   padding: 0 20px;
 }
 .navbar-container {
-  max-width: 880px;
+  max-width: 1150px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -188,7 +188,7 @@
   transform: translateY(-12px);
 }
 .category-nav-inner {
-  max-width: 880px;
+  max-width: 1150px;
   margin: 0 auto;
   display: flex;
   align-items: flex-end;
