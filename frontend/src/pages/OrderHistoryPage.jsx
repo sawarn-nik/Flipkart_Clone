@@ -6,6 +6,7 @@ import "./OrderHistoryPage.css";
 const OrderHistoryPage = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cancelling, setCancelling] = useState(null);
 
   useEffect(() => {
     api.get("/orders")
@@ -13,6 +14,19 @@ const OrderHistoryPage = () => {
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
+
+  const handleCancel = async (orderId) => {
+    if (!window.confirm("Are you sure you want to cancel this order?")) return;
+    setCancelling(orderId);
+    try {
+      await api.patch(`/orders/${orderId}/cancel`);
+      setOrders((prev) => prev.map((o) => o.id === orderId ? { ...o, status: "cancelled" } : o));
+    } catch (err) {
+      alert(err.response?.data?.message || "Failed to cancel order");
+    } finally {
+      setCancelling(null);
+    }
+  };
 
   if (loading) return <div className="orders-loading">Loading...</div>;
 
@@ -41,7 +55,18 @@ const OrderHistoryPage = () => {
               </div>
               <div className="order-footer">
                 <span>{order.item_count} item(s)</span>
-                <Link to={`/order-confirmation/${order.id}`} className="view-details-btn">View Details</Link>
+                <div className="order-actions">
+                  {order.status !== "cancelled" && order.status !== "delivered" && (
+                    <button
+                      className="cancel-order-btn"
+                      onClick={() => handleCancel(order.id)}
+                      disabled={cancelling === order.id}
+                    >
+                      {cancelling === order.id ? "Cancelling..." : "Cancel Order"}
+                    </button>
+                  )}
+                  <Link to={`/order-confirmation/${order.id}`} className="view-details-btn">View Details</Link>
+                </div>
               </div>
             </div>
           ))

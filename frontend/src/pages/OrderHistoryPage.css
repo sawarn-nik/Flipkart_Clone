@@ -25,3 +25,8 @@
 .cancel-order-btn { background: none; border: 1px solid #ff4444; color: #ff4444; padding: 6px 14px; border-radius: 2px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s, color 0.15s; }
 .cancel-order-btn:hover { background: #ff4444; color: white; }
 .cancel-order-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.order-actions { display: flex; align-items: center; gap: 16px; }
+.cancel-order-btn { background: none; border: 1px solid #ff4444; color: #ff4444; padding: 6px 14px; border-radius: 2px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.cancel-order-btn:hover { background: #ff4444; color: white; }
+.cancel-order-btn:disabled { opacity: 0.6; cursor: not-allowed; }

@@ -118,4 +118,39 @@ const getOrderById = async (req, res) => {
   }
 };
 
-module.exports = { placeOrder, getOrders, getOrderById };
+// PATCH /api/orders/:id/cancel — cancel an order
+const cancelOrder = async (req, res) => {
+  const conn = await pool.getConnection();
+  try {
+    await conn.beginTransaction();
+
+    const { id } = req.params;
+
+    const [[order]] = await conn.query(
+      `SELECT * FROM orders WHERE id = ? AND user_id = ?`,
+      [id, DEFAULT_USER_ID]
+    );
+
+    if (!order) return res.status(404).json({ success: false, message: "Order not found" });
+    if (order.status === "cancelled") return res.status(400).json({ success: false, message: "Order already cancelled" });
+    if (order.status === "delivered") return res.status(400).json({ success: false, message: "Delivered orders cannot be cancelled" });
+
+    // Restore stock
+    const [items] = await conn.query(`SELECT * FROM order_items WHERE order_id = ?`, [id]);
+    for (const item of items) {
+      await conn.query(`UPDATE products SET stock = stock + ? WHERE id = ?`, [item.quantity, item.product_id]);
+    }
+
+    await conn.query(`UPDATE orders SET status = 'cancelled' WHERE id = ?`, [id]);
+    await conn.commit();
+
+    res.json({ success: true, message: "Order cancelled successfully" });
+  } catch (err) {
+    await conn.rollback();
+    res.status(500).json({ success: false, message: err.message });
+  } finally {
+    conn.release();
+  }
+};
+
+module.exports = { placeOrder, getOrders, getOrderById, cancelOrder };
