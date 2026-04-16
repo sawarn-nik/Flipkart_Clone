@@ -265,13 +265,11 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .topbar-right { display: none; }
   .navbar-search { max-width: 100%; }
 }
 @media (max-width: 640px) {
   .nav-btn span:not(.chevron) { display: none; }
   .login-btn span { display: inline; }
-  .topbar { display: none; }
 }
 
 /* ── Login dropdown ── */
