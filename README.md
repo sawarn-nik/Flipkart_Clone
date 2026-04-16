@@ -6,6 +6,22 @@ A full-stack e-commerce web application replicating Flipkart's UI and core funct
 
 ---
 
+## Screenshots
+
+### Order Confirmation Page
+![Order Confirmation](screenshots/order-confirmation.png)
+
+### Order History & Cancel Order
+![Order History](screenshots/order-history.png)
+
+### Email — Order Confirmed
+![Email Confirmation](screenshots/email-confirmation.png)
+
+### Email — Order Cancelled
+![Email Cancellation](screenshots/email-cancellation.png)
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
