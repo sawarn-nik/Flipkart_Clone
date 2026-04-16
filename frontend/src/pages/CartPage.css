@@ -32,3 +32,21 @@
 .cart-empty p { color: #878787; margin-bottom: 24px; }
 .shop-now-btn { background: #2874f0; color: white; text-decoration: none; padding: 12px 32px; border-radius: 2px; font-size: 14px; font-weight: 600; }
 @media (max-width: 768px) { .cart-container { flex-direction: column; } .price-summary { width: 100%; } }
+
+@media (max-width: 768px) {
+  .cart-page { padding: 8px 0 80px; }
+  .cart-container { padding: 0 10px; gap: 10px; }
+  .cart-title { font-size: 16px; padding: 12px 14px; }
+  .cart-item { padding: 14px; gap: 10px; }
+  .cart-item-image { width: 72px; height: 72px; }
+  .cart-item-name { font-size: 13px; margin-bottom: 6px; }
+  .cart-item-price { font-size: 15px; margin-bottom: 8px; }
+  .cart-item-original { font-size: 12px; }
+  .quantity-controls button { width: 28px; height: 28px; font-size: 16px; }
+  .quantity-value { width: 32px; height: 28px; font-size: 13px; }
+  .cart-checkout-bar { padding: 12px 14px; position: sticky; bottom: 56px; background: white; z-index: 10; }
+  .place-order-btn { width: 100%; padding: 14px; font-size: 15px; border-radius: 4px; }
+  .price-summary { width: 100%; padding: 14px; }
+  .summary-row { font-size: 14px; }
+  .total-row { font-size: 15px; }
+}
