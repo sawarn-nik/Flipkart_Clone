@@ -5,7 +5,7 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "http://localhost:5173" })); // Allow React dev server
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // Routes
