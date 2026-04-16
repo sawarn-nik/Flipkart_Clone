@@ -8,6 +8,7 @@ import { WishlistProvider } from "./context/WishlistContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SeoContent from "./components/SeoContent";
+import MobileBottomNav from "./components/MobileBottomNav";
 import ProductListingPage from "./pages/ProductListingPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
@@ -33,6 +34,7 @@ function App() {
           </Routes>
           <SeoContent />
           <Footer />
+          <MobileBottomNav />
           <ToastContainer position="bottom-right" autoClose={2000} hideProgressBar={false} newestOnTop closeOnClick />
         </WishlistProvider>
       </CartProvider>
