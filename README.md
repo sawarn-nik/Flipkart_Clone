@@ -2,7 +2,7 @@
 
 A full-stack e-commerce web application replicating Flipkart's UI and core functionality, built as part of the Scaler SDE Assignment.
 
-🔗 **Live Demo:** [https://flipkart-clone-frontend.vercel.app](https://flipkart-clone-frontend.vercel.app)
+🔗 **Live Demo:** [https://flipkart-clone-sigma-eight.vercel.app](https://flipkart-clone-sigma-eight.vercel.app)
 
 ---
 
