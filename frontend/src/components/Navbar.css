@@ -270,6 +270,7 @@
 @media (max-width: 640px) {
   .nav-btn span:not(.chevron) { display: none; }
   .login-btn span { display: inline; }
+  .navbar-links .login-wrapper { display: none; }
 }
 
 /* ── Login dropdown ── */
@@ -442,4 +443,57 @@
   font-size: 12px;
   color: #ff4444;
   margin-top: 6px;
+}
+
+/* ── Mobile Bottom Nav ── */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    height: 56px;
+    align-items: stretch;
+  }
+
+  .mobile-bottom-nav a,
+  .mobile-bottom-nav button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 11px;
+    color: #666;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 6px 0;
+  }
+
+  .mobile-bottom-nav a.active-tab,
+  .mobile-bottom-nav a.active-tab svg {
+    color: #2874f0;
+    stroke: #2874f0;
+  }
+
+  .mobile-bottom-nav svg {
+    stroke: #666;
+  }
+
+  /* Add padding so content doesn't hide behind bottom nav */
+  body {
+    padding-bottom: 56px;
+  }
 }
