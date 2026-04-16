@@ -8,7 +8,7 @@ import "./CheckoutPage.css";
 const CheckoutPage = () => {
   const { cartItems, cartTotal, fetchCart } = useCart();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "Rahul Sharma", phone: "9876543210", address: "", city: "", state: "", pincode: "" });
+  const [form, setForm] = useState({ name: "Rahul Sharma", phone: "9876543210", email: "", address: "", city: "", state: "", pincode: "" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -44,6 +44,10 @@ const CheckoutPage = () => {
                 <label>Phone Number *</label>
                 <input name="phone" value={form.phone} onChange={handleChange} required placeholder="10-digit mobile number" maxLength={10} />
               </div>
+            </div>
+            <div className="form-group">
+              <label>Email Address <span style={{color:"#878787",fontWeight:400}}>(for order confirmation)</span></label>
+              <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Enter your email" />
             </div>
             <div className="form-group">
               <label>Address *</label>

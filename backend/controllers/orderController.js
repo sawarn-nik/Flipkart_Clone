@@ -1,5 +1,6 @@
 const pool = require("../config/db");
 const { v4: uuidv4 } = require("uuid");
+const { sendOrderConfirmation } = require("../config/mailer");
 
 const DEFAULT_USER_ID = 1;
 
@@ -67,6 +68,18 @@ const placeOrder = async (req, res) => {
     await conn.query(`DELETE FROM cart_items WHERE user_id = ?`, [DEFAULT_USER_ID]);
 
     await conn.commit();
+
+    // Send confirmation email (non-blocking)
+    if (shipping.email) {
+      sendOrderConfirmation({
+        to: shipping.email,
+        orderId,
+        name: shipping.name,
+        items: cartItems,
+        total,
+        shipping,
+      }).catch((err) => console.error("Email send failed:", err.message));
+    }
 
     res.json({ success: true, data: { orderId, total, itemCount: cartItems.length } });
   } catch (err) {
