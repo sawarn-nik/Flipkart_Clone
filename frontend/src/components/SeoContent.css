@@ -49,3 +49,7 @@
 .seo-inner ol li {
   margin-bottom: 6px;
 }
+
+@media (max-width: 768px) {
+  .seo-root { display: none; }
+}

@@ -154,3 +154,8 @@
   transition: background 0.15s;
 }
 .footer-refresh-btn:hover { background: #1a5dc8; }
+
+@media (max-width: 768px) {
+  .footer { display: none; }
+  .footer-refresh { display: none; }
+}
