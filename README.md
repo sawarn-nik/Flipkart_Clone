@@ -4,6 +4,10 @@ A full-stack e-commerce web application replicating Flipkart's UI and core funct
 
 🔗 **Live Demo:** [https://flipkart-clone-sigma-eight.vercel.app](https://flipkart-clone-sigma-eight.vercel.app)
 
+⚙️ **Backend API:** [https://flipkart-clone-i1eu.onrender.com](https://flipkart-clone-i1eu.onrender.com)
+
+> ⚠️ **Note:** The backend is hosted on Render's free tier and goes to sleep after inactivity. Please visit the backend URL first and wait for it to wake up (10–30 seconds) before using the frontend.
+
 ---
 
 ## Screenshots
