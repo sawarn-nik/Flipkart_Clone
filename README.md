@@ -1,32 +1,51 @@
-# Flipkart Clone — E-Commerce Platform
+<div align="center">
 
-A full-stack e-commerce web application replicating Flipkart's UI and core functionality, built as part of the Scaler SDE Assignment.
+# 🛒 Flipkart Clone
 
-🔗 **Live Demo:** [https://flipkart-clone-sigma-eight.vercel.app](https://flipkart-clone-sigma-eight.vercel.app)
+A full-stack e-commerce web application replicating Flipkart's UI and core functionality — built as part of the Scaler SDE Assignment.
 
-⚙️ **Backend API:** [https://flipkart-clone-i1eu.onrender.com](https://flipkart-clone-i1eu.onrender.com)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://flipkart-clone-sigma-eight.vercel.app)
+[![Backend](https://img.shields.io/badge/Backend%20API-Render-46E3B7?style=for-the-badge&logo=render)](https://flipkart-clone-i1eu.onrender.com)
 
-> ⚠️ **Note:** The backend is hosted on Render's free tier and goes to sleep after inactivity. Please visit the backend URL first and wait for it to wake up (10–30 seconds) before using the frontend.
+> ⚠️ **Backend is hosted on Render's free tier and goes to sleep after inactivity.**
+> Please visit the [Backend URL](https://flipkart-clone-i1eu.onrender.com) first and wait 10–30 seconds for it to wake up before using the frontend.
+
+</div>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-### Order Confirmation Page
-![Order Confirmation](screenshots/order-confirmation.png)
+### 🏠 Homepage
+![Homepage](screenshots/homepage.png)
 
-### Order History & Cancel Order
+### 📦 Product Listing
+![Product Listing](screenshots/product-listing.png)
+
+### 🔍 Product Detail
+![Product Detail](screenshots/product-detail.png)
+
+### 🛒 Cart
+![Cart](screenshots/cart.png)
+
+### 📋 Order History & Cancel
 ![Order History](screenshots/order-history.png)
 
-### Email — Order Confirmed
+### ✅ Order Confirmation
+![Order Confirmation](screenshots/order-confirmation.png)
+
+### 📧 Email — Order Confirmed
 ![Email Confirmation](screenshots/email-confirmation.png)
 
-### Email — Order Cancelled
+### 📧 Email — Order Cancelled
 ![Email Cancellation](screenshots/email-cancellation.png)
+
+### 📱 Mobile View
+![Mobile](screenshots/mobile.png)
 
 ---
 
-## Tech Stack
+## ⚙️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -38,36 +57,34 @@ A full-stack e-commerce web application replicating Flipkart's UI and core funct
 
 ---
 
-## Features
+## ✨ Features
 
 ### Core
-- Flipkart-style homepage with banner carousel and category sections
-- Product listing page with grid layout and product cards
-- Category navigation bar with sliding indicator
-- Search by product name / brand
-- Filter by category (only shown on search results)
-- Product detail page with image carousel, specs, ratings, and stock status
-- Add to Cart / Buy Now
-- Cart management (add, update quantity, remove)
-- Checkout with shipping address + email form
-- Order placement with order confirmation page
-- Order history page with order status
+- 🏠 Flipkart-style homepage with banner carousel and category sections
+- 🗂️ Category navigation bar with animated sliding indicator
+- 🔍 Search by product name / brand
+- 🏷️ Filter by category (shown only on search results)
+- 📄 Product detail page with image carousel, specs, ratings, and stock status
+- 🛒 Add to Cart / Buy Now
+- 🛍️ Cart management (add, update quantity, remove)
+- 📦 Checkout with shipping address + email form
+- ✅ Order placement with confirmation page
+- 📋 Order history with status tracking
 
 ### Bonus
-- Wishlist (add/remove, move to cart)
-- Cancel order (restores stock)
-- Email notification on order placement (confirmation email with order summary)
-- Email notification on order cancellation (with refund info)
-- Delivery location selector (saves to localStorage)
-- Responsive design (mobile, tablet, desktop)
-- Toast notifications for user feedback
-- Skeleton loading states
-- SEO content section above footer
-- Banner carousel on category pages
+- ❤️ Wishlist (add/remove, move to cart)
+- ❌ Cancel order (restores stock automatically)
+- 📧 Email notification on order placement (with full order summary)
+- 📧 Email notification on order cancellation (with refund info)
+- 📍 Delivery location selector (persists via localStorage)
+- 📱 Fully responsive — mobile bottom nav, mobile-optimized layout
+- 💀 Skeleton loading states
+- 🔔 Toast notifications for user feedback
+- 📝 SEO content section above footer
 
 ---
 
-## Database Schema
+## 🗄️ Database Schema
 
 ```
 categories         — product categories
@@ -83,7 +100,7 @@ order_items        — items in each order (price snapshot)
 
 ---
 
-## Setup Instructions
+## 🚀 Setup Instructions
 
 ### Prerequisites
 - Node.js v18+
@@ -92,7 +109,6 @@ order_items        — items in each order (price snapshot)
 ### 1. Database Setup
 
 ```bash
-# Login to MySQL and run the schema
 mysql -u root -p < backend/config/schema.sql
 ```
 
@@ -100,16 +116,12 @@ mysql -u root -p < backend/config/schema.sql
 
 ```bash
 cd backend
-
-# Install dependencies
 npm install
-
-# Create .env file
 cp .env.example .env
 # Edit .env with your MySQL credentials and email config
 ```
 
-**.env variables:**
+**`.env` variables:**
 ```env
 DB_HOST=localhost
 DB_USER=root
@@ -123,60 +135,51 @@ EMAIL_USER=your_gmail@gmail.com
 EMAIL_PASS=your_app_password
 ```
 
-> To get a Gmail App Password: Google Account → Security → 2-Step Verification → App Passwords
+> To get a Gmail App Password: Google Account → Security → 2-Step Verification → App Passwords → generate one for "Mail"
 
 ```bash
-# Seed the database with sample products
-npm run seed
-
-# Start the server
-npm run dev
-# Server runs on http://localhost:5000
+npm run seed    # seed sample products
+npm run dev     # starts on http://localhost:5000
 ```
 
 ### 3. Frontend Setup
 
 ```bash
 cd frontend
-
-# Install dependencies
 npm install
-
-# Start the dev server
-npm run dev
-# App runs on http://localhost:5173
+npm run dev     # starts on http://localhost:5173
 ```
 
 ---
 
-## API Endpoints
+## 📡 API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | /api/products | List products (supports ?search= and ?category=) |
-| GET | /api/products/categories | All categories |
-| GET | /api/products/:id | Single product with images & specs |
-| GET | /api/cart | Get cart items |
-| POST | /api/cart | Add to cart |
-| PUT | /api/cart/:id | Update quantity |
-| DELETE | /api/cart/:id | Remove from cart |
-| POST | /api/orders | Place order (sends confirmation email) |
-| GET | /api/orders | Order history |
-| GET | /api/orders/:id | Order details |
-| PATCH | /api/orders/:id/cancel | Cancel order + restore stock + send email |
-| GET | /api/wishlist | Get wishlist |
-| POST | /api/wishlist | Add to wishlist |
-| DELETE | /api/wishlist/:productId | Remove from wishlist |
+| GET | `/api/products` | List products (`?search=` / `?category=`) |
+| GET | `/api/products/categories` | All categories |
+| GET | `/api/products/:id` | Single product with images & specs |
+| GET | `/api/cart` | Get cart items |
+| POST | `/api/cart` | Add to cart |
+| PUT | `/api/cart/:id` | Update quantity |
+| DELETE | `/api/cart/:id` | Remove from cart |
+| POST | `/api/orders` | Place order + send confirmation email |
+| GET | `/api/orders` | Order history |
+| GET | `/api/orders/:id` | Order details |
+| PATCH | `/api/orders/:id/cancel` | Cancel order + restore stock + send email |
+| GET | `/api/wishlist` | Get wishlist |
+| POST | `/api/wishlist` | Add to wishlist |
+| DELETE | `/api/wishlist/:productId` | Remove from wishlist |
 
 ---
 
-## Assumptions
+## 📝 Assumptions
 
 - A default user (id=1, Rahul Sharma) is always logged in — no authentication required per assignment spec
 - Delivery is free for orders above ₹500, otherwise ₹40
-- Stock is reduced when an order is placed and restored when cancelled
+- Stock is reduced on order placement and restored on cancellation
 - Cart is cleared after a successful order
-- Email is optional at checkout — if provided, confirmation and cancellation emails are sent
-- Only orders with status `confirmed` or `shipped` can be cancelled (`delivered` orders cannot)
-- Product images use external URLs for demo purposes
+- Email is optional at checkout — confirmation and cancellation emails sent only if provided
+- Only `confirmed` or `shipped` orders can be cancelled (`delivered` orders cannot)
 - Delivery location is stored in localStorage (no backend persistence needed)
+- Product images use external URLs for demo purposes
