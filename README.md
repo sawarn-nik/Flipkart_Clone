@@ -1,51 +1,51 @@
 <div align="center">
 
-# 🛒 Flipkart Clone
+# Flipkart Clone
 
 A full-stack e-commerce web application replicating Flipkart's UI and core functionality — built as part of the Scaler SDE Assignment.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://flipkart-clone-sigma-eight.vercel.app)
 [![Backend](https://img.shields.io/badge/Backend%20API-Render-46E3B7?style=for-the-badge&logo=render)](https://flipkart-clone-i1eu.onrender.com)
 
-> ⚠️ **Backend is hosted on Render's free tier and goes to sleep after inactivity.**
+> **Backend is hosted on Render's free tier and goes to sleep after inactivity.**
 > Please visit the [Backend URL](https://flipkart-clone-i1eu.onrender.com) first and wait 10–30 seconds for it to wake up before using the frontend.
 
 </div>
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-### 🏠 Homepage
+### Homepage
 ![Homepage](screenshots/homepage.png)
 
-### 📦 Product Listing
+### Product Listing
 ![Product Listing](screenshots/product-listing.png)
 
-### 🔍 Product Detail
+### Product Detail
 ![Product Detail](screenshots/product-detail.png)
 
-### 🛒 Cart
+### Cart
 ![Cart](screenshots/cart.png)
 
-### 📋 Order History & Cancel
+### Order History & Cancel
 ![Order History](screenshots/order-history.png)
 
-### ✅ Order Confirmation
+### Order Confirmation
 ![Order Confirmation](screenshots/order-confirmation.png)
 
-### 📧 Email — Order Confirmed
+### Email — Order Confirmed
 ![Email Confirmation](screenshots/email-confirmation.png)
 
-### 📧 Email — Order Cancelled
+### Email — Order Cancelled
 ![Email Cancellation](screenshots/email-cancellation.png)
 
-### 📱 Mobile View
+### Mobile View
 ![Mobile](screenshots/mobile.png)
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -57,34 +57,34 @@ A full-stack e-commerce web application replicating Flipkart's UI and core funct
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core
-- 🏠 Flipkart-style homepage with banner carousel and category sections
-- 🗂️ Category navigation bar with animated sliding indicator
-- 🔍 Search by product name / brand
-- 🏷️ Filter by category (shown only on search results)
-- 📄 Product detail page with image carousel, specs, ratings, and stock status
-- 🛒 Add to Cart / Buy Now
-- 🛍️ Cart management (add, update quantity, remove)
-- 📦 Checkout with shipping address + email form
-- ✅ Order placement with confirmation page
-- 📋 Order history with status tracking
+- Flipkart-style homepage with banner carousel and category sections
+- Category navigation bar with animated sliding indicator
+- Search by product name / brand
+- Filter by category (shown only on search results)
+- Product detail page with image carousel, specs, ratings, and stock status
+- Add to Cart / Buy Now
+- Cart management (add, update quantity, remove)
+- Checkout with shipping address + email form
+- Order placement with confirmation page
+- Order history with status tracking
 
 ### Bonus
-- ❤️ Wishlist (add/remove, move to cart)
-- ❌ Cancel order (restores stock automatically)
-- 📧 Email notification on order placement (with full order summary)
-- 📧 Email notification on order cancellation (with refund info)
-- 📍 Delivery location selector (persists via localStorage)
-- 📱 Fully responsive — mobile bottom nav, mobile-optimized layout
-- 💀 Skeleton loading states
-- 🔔 Toast notifications for user feedback
-- 📝 SEO content section above footer
+- Wishlist (add/remove, move to cart)
+- Cancel order (restores stock automatically)
+- Email notification on order placement (with full order summary)
+- Email notification on order cancellation (with refund info)
+- Delivery location selector (persists via localStorage)
+- Fully responsive — mobile bottom nav, mobile-optimized layout
+- Skeleton loading states
+- Toast notifications for user feedback
+- SEO content section above footer
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ```
 categories         — product categories
@@ -100,7 +100,7 @@ order_items        — items in each order (price snapshot)
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 - Node.js v18+
@@ -152,7 +152,7 @@ npm run dev     # starts on http://localhost:5173
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -173,7 +173,7 @@ npm run dev     # starts on http://localhost:5173
 
 ---
 
-## 📝 Assumptions
+## Assumptions
 
 - A default user (id=1, Rahul Sharma) is always logged in — no authentication required per assignment spec
 - Delivery is free for orders above ₹500, otherwise ₹40
