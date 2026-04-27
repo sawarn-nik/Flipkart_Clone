@@ -4,7 +4,8 @@
 
 A full-stack e-commerce web application replicating FlipStore's UI and core functionality — built as part of the Scaler SDE Assignment.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://flipkart-clone-sigma-eight.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Netlify-00C7B7?style=for-the-badge&logo=netlify)](https://flipstore-kart.netlify.app)
+[![Vercel](https://img.shields.io/badge/Also%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://flipkart-clone-sigma-eight.vercel.app)
 [![Backend](https://img.shields.io/badge/Backend%20API-Render-46E3B7?style=for-the-badge&logo=render)](https://flipkart-clone-i1eu.onrender.com)
 
 > **Backend is hosted on Render's free tier and goes to sleep after inactivity.**
