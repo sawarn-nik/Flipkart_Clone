@@ -55,13 +55,13 @@ const AccountPage = () => {
         ))}
       </div>
 
-      {/* Earn with Flipkart */}
+      {/* Earn with FlipStore */}
       <div className="account-section">
-        <h3 className="account-section-title">Earn with Flipkart</h3>
+        <h3 className="account-section-title">Earn with FlipStore</h3>
         <div className="account-menu-item">
           <span className="account-menu-emoji">🏪</span>
           <div className="account-menu-text">
-            <span className="account-menu-label">Sell on Flipkart</span>
+            <span className="account-menu-label">Sell on FlipStore</span>
           </div>
           <span className="account-menu-arrow">›</span>
         </div>

@@ -93,19 +93,7 @@ const Navbar = () => {
         <div className="topbar-inner">
           <div className="topbar-left">
             <Link to="/" className="logo-pill">
-              <img
-                src="https://rukminim2.flixcart.com/fk-p-flap/26/22/image/d2ecfddf891a3922.png?q=80"
-                srcSet="https://rukminim2.flixcart.com/fk-p-flap/52/44/image/d2ecfddf891a3922.png?q=90 2x"
-                alt="f"
-                width="26"
-                height="22"
-              />
-              <img
-                src="https://rukminim2.flixcart.com/fk-p-flap/92/36/image/31f7e3af490c225f.png?q=90"
-                alt="Flipkart"
-                width="72"
-                height="28"
-              />
+              <span className="logo-text">FlipStore</span>
             </Link>
             <button className="travel-pill">
               <img
@@ -219,7 +207,7 @@ const Navbar = () => {
                   <ul className="login-menu">
                     {[
                       { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-6bae67.svg", label: "My Profile",               to: "/orders" },
-                      { icon: "https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/plus_aef861.png", label: "Flipkart Plus Zone", to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/plus_aef861.png", label: "FlipStore Plus Zone", to: "/" },
                       { icon: "orders", label: "Orders", to: "/orders" },
                       { icon: "heart", label: "Wishlist", to: "/wishlist" },
                       { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/sell-image-0489fc.svg", label: "Become a Seller",        to: "/" },
@@ -288,7 +276,7 @@ const Navbar = () => {
                       { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/sell-image-0489fc.svg",      label: "Become a Seller",       to: "/" },
                       { icon: "notification", label: "Notification Settings", to: "/" },
                       { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/help-centre-image-b9e23c.svg", label: "24x7 Customer Care",    to: "/" },
-                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/advertise-image-e4b62a.svg",  label: "Advertise on Flipkart", to: "/" },
+                      { icon: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/advertise-image-e4b62a.svg",  label: "Advertise on FlipStore", to: "/" },
                     ].map(({ icon, label, to }) => (
                       <li key={label}>
                         <Link to={to} className="login-menu-item">

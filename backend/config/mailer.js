@@ -60,14 +60,14 @@ const sendOrderConfirmation = async ({ to, orderId, name, items, total, shipping
         </div>
 
         <p style="margin-top:24px;font-size:13px;color:#878787;text-align:center;">
-          Thank you for shopping with <strong style="color:#2874f0;">Flipkart</strong>!
+          Thank you for shopping with <strong style="color:#2874f0;">FlipStore</strong>!
         </p>
       </div>
     </div>
   `;
 
   await transporter.sendMail({
-    from: `"Flipkart" <${process.env.EMAIL_USER}>`,
+    from: `"FlipStore" <${process.env.EMAIL_USER}>`,
     to,
     subject: `Order Confirmed - #${orderId.slice(0, 8).toUpperCase()}`,
     html,
@@ -96,14 +96,14 @@ const sendOrderCancellation = async ({ to, orderId, name, total }) => {
         </div>
 
         <p style="margin-top:24px;font-size:13px;color:#878787;text-align:center;">
-          We hope to see you again at <strong style="color:#2874f0;">Flipkart</strong>!
+          We hope to see you again at <strong style="color:#2874f0;">FlipStore</strong>!
         </p>
       </div>
     </div>
   `;
 
   await transporter.sendMail({
-    from: `"Flipkart" <${process.env.EMAIL_USER}>`,
+    from: `"FlipStore" <${process.env.EMAIL_USER}>`,
     to,
     subject: `Order Cancelled - #${orderId.slice(0, 8).toUpperCase()}`,
     html,

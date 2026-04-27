@@ -1,8 +1,8 @@
 <div align="center">
 
-# Flipkart Clone
+# FlipStore
 
-A full-stack e-commerce web application replicating Flipkart's UI and core functionality — built as part of the Scaler SDE Assignment.
+A full-stack e-commerce web application replicating FlipStore's UI and core functionality — built as part of the Scaler SDE Assignment.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://flipkart-clone-sigma-eight.vercel.app)
 [![Backend](https://img.shields.io/badge/Backend%20API-Render-46E3B7?style=for-the-badge&logo=render)](https://flipkart-clone-i1eu.onrender.com)
@@ -60,7 +60,7 @@ A full-stack e-commerce web application replicating Flipkart's UI and core funct
 ## Features
 
 ### Core
-- Flipkart-style homepage with banner carousel and category sections
+- FlipStore-style homepage with banner carousel and category sections
 - Category navigation bar with animated sliding indicator
 - Search by product name / brand
 - Filter by category (shown only on search results)

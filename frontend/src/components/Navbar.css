@@ -44,11 +44,17 @@
   gap: 6px;
   background: #FFE500;
   border-radius: 12px;
-  padding: 6px 12px;
+  padding: 6px 16px;
   text-decoration: none;
   flex-shrink: 0;
 }
-.logo-pill img { display: block; }
+.logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: #2874f0;
+  font-style: italic;
+  letter-spacing: -0.5px;
+}
 
 /* Travel pill */
 .travel-pill {

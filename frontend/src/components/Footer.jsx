@@ -9,7 +9,7 @@ const Footer = () => {
           <a href="#">Contact Us</a>
           <a href="#">About Us</a>
           <a href="#">Careers</a>
-          <a href="#">Flipkart Stories</a>
+          <a href="#">FlipStore Stories</a>
           <a href="#">Press</a>
           <a href="#">Corporate Information</a>
         </div>
@@ -46,7 +46,7 @@ const Footer = () => {
         <div className="footer-col footer-address">
           <h4>Mail Us:</h4>
           <p>
-            Flipkart Internet Private Limited,<br />
+            FlipStore Internet Private Limited,<br />
             Buildings Alyssa, Begonia &amp;<br />
             Clove Embassy Tech Village,<br />
             Outer Ring Road, Devarabeesanahalli Village,<br />
@@ -65,7 +65,7 @@ const Footer = () => {
         <div className="footer-col footer-address">
           <h4>Registered Office Address:</h4>
           <p>
-            Flipkart Internet Private Limited,<br />
+            FlipStore Internet Private Limited,<br />
             Buildings Alyssa, Begonia &amp;<br />
             Clove Embassy Tech Village,<br />
             Outer Ring Road, Devarabeesanahalli Village,<br />
@@ -97,7 +97,7 @@ const Footer = () => {
               Help Center
             </a>
           </div>
-          <div className="footer-copyright">© 2007-2026 Flipkart.com</div>
+          <div className="footer-copyright">© 2007-2026 FlipStore.com</div>
           <div className="footer-payments">
             <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-69e7ec.svg" alt="Payment Methods" height="24" />
           </div>
